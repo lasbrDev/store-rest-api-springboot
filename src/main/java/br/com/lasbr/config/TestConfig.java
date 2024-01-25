@@ -9,10 +9,12 @@ import org.springframework.context.annotation.Profile;
 
 import br.com.lasbr.entities.Category;
 import br.com.lasbr.entities.Order;
+import br.com.lasbr.entities.OrderItem;
 import br.com.lasbr.entities.Product;
 import br.com.lasbr.entities.User;
 import br.com.lasbr.entities.enums.OrderStatus;
 import br.com.lasbr.repositories.CategoryRepository;
+import br.com.lasbr.repositories.OrderItemRepository;
 import br.com.lasbr.repositories.OrderRepository;
 import br.com.lasbr.repositories.ProductRepository;
 import br.com.lasbr.repositories.UserRepository;
@@ -28,14 +30,17 @@ public class TestConfig implements CommandLineRunner {
 	private final CategoryRepository categoryRepository;
 
 	private final ProductRepository productRepository;
+	
+	private final OrderItemRepository orderItemRepository;
 
-	public TestConfig(UserRepository userRepository, OrderRepository orderRepository,
-			CategoryRepository categoryRepository, ProductRepository productRepository) {
+	public TestConfig(UserRepository userRepository, OrderRepository orderRepository, CategoryRepository categoryRepository, 
+			ProductRepository productRepository, OrderItemRepository orderItemRepository) {
 
 		this.userRepository = userRepository;
 		this.orderRepository = orderRepository;
 		this.categoryRepository = categoryRepository;
 		this.productRepository = productRepository;
+		this.orderItemRepository = orderItemRepository;
 	}
 
 	@Override
@@ -72,5 +77,12 @@ public class TestConfig implements CommandLineRunner {
 
 		userRepository.saveAll(Arrays.asList(user1, user2));
 		orderRepository.saveAll(Arrays.asList(order1, order2, order3));
+		
+		OrderItem ord1 = new OrderItem(order1, p1, 2, p1.getPrice());
+		OrderItem ord2 = new OrderItem(order1, p3, 1, p4.getPrice());
+		OrderItem ord3 = new OrderItem(order2, p3, 2, p1.getPrice());
+		OrderItem ord4 = new OrderItem(order3, p5, 2, p5.getPrice());
+		
+		orderItemRepository.saveAll(Arrays.asList(ord1, ord2,ord3, ord4));
 	}
 }
