@@ -67,7 +67,7 @@ A classe `OrderItem` representa um item específico em um pedido. Cada item poss
 	
 ## Testando a Aplicação
 
-Os testes dos endpoints foram realizados com o insomnia, mas pode ser utilizado qualquer outro, como por exemplo, o postman.
+Os testes dos endpoints foram realizados com o insomnia, mas pode ser utilizado qualquer outra aplicação de testes de API, como por exemplo, o postman.
 
 * Acessar o endpoint no insomnia: http://localhost:8080
 
