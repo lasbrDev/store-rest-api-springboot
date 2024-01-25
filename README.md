@@ -37,7 +37,7 @@ A classe `OrderItem` representa um item específico em um pedido. Cada item poss
 - **User**: `/users`
   - `GET /users`: Recuperar todos os usuários cadastrados.
   - `GET /users/{id}`: Recuperar um usuário específico por ID.
-  - `POST /users`: Criar um novo usuário. (TO-DO)
+  - `POST /users`: Criar um novo usuário.
   - `PUT /users/{id}`: Atualizar um usuário existente por ID. (TO-DO)
   - `DELETE /users/{id}`: Excluir um usuário por ID. (TO-DO)
 
